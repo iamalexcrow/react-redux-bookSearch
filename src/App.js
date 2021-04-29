@@ -1,25 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import {connect} from 'react-redux';
+import SearchBar from './components/SearchBar/SearchBar'
+import Results from './components/Results/Results';
+import BookModal from './components/Results/BookModal/BookModal';
+import {closeModal} from './redux/reducer';
 
-function App() {
+function App({isError, errorMessage, isModalOpen, book, closeModal}) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <SearchBar/>
+      {
+      isError && 
+        <div className="error">
+          {errorMessage}
+        </div>
+      }
+      <Results/>
+      {
+        isModalOpen && book &&
+        <BookModal {...book} closeModal={closeModal}/>
+      }
     </div>
-  );
+  )
 }
 
-export default App;
+const mapStateToProps = (store) => (
+  {
+    isError: store.isError,
+    isModalOpen: store.isModalOpen,
+    book: store.book,
+    errorMessage: store.errorMessage
+  }
+)
+
+export default connect (mapStateToProps, {closeModal})(App);

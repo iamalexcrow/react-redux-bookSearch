@@ -1,0 +1,67 @@
+.searchForm {
+    width: 80vw;
+    margin: 0 auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.title {
+    letter-spacing: 0.1rem;
+    padding: 0 1.5rem;
+}
+
+.search {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: white;
+    border-radius: 50px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.formInput {
+    width: 100%;
+    border: transparent;
+    background: rgb(255, 255, 255);
+    padding: 1rem;
+    font-size: 1rem;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    letter-spacing: 0.1rem;
+    outline: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.btn {
+    text-transform: capitalize;
+    padding: 0.5rem 1.2rem;
+    background: orange;
+    color: rgb(255, 255, 255);
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.1rem;
+}
+
+.btn i {
+    font-size: 1.4rem;
+}
+
+@media screen and (min-width: 676px) {
+    .sidebar {
+        width: 400px;
+    }
+}

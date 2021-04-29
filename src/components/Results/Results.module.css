@@ -1,0 +1,17 @@
+.snippetContainer {
+    display: flex;
+    justify-content:space-evenly;
+    flex-wrap: wrap;
+    width: 80vw;
+    margin: 0 auto;
+}
+.spacer60 {
+    padding: 60px;
+    display: none;
+}
+
+@media screen and (max-width: 574px) {
+    .spacer60 {
+        display: block;
+    }
+}

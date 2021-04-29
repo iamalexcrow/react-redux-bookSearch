@@ -1,0 +1,19 @@
+// add query media --done
+
+// clear a form after a succesful search - done 
+
+// add MISTAKE functionality -- done
+// add MISTAKE if response is undefined -- done
+// add styling to MISTAKE
+
+//disable search Bar while loading - done
+
+// go through functionality 
+// code/codes, author/authors
+// check alt for pictures 
+// add focus -- done
+
+
+// redo
+// cv
+// apply
