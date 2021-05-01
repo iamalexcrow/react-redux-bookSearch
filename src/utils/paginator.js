@@ -1,5 +1,3 @@
-import React from 'react';
-
 const paginate = (books) => {
     const itemsPerPage = 12;
     const pages = Math.ceil(books.length / itemsPerPage);
