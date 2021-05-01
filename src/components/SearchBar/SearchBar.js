@@ -18,6 +18,7 @@ const SearchBar = ({updateSearch, searchItem, getBooks, isLoading}) => {
         }
         const timeoutId = setTimeout(()=>getBooks(searchItem), 1000);
         return () => clearTimeout(timeoutId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchItem]);
     
     return (
