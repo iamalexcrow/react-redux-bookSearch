@@ -1,6 +1,6 @@
 import * as axios from 'axios';
 
-const baseSearchUrl = `http://openlibrary.org`
+const baseSearchUrl = `https://openlibrary.org`
 const findBookQuery = `/search.json?title=`;
 
 export const findBooks = async(searchItem) => {
