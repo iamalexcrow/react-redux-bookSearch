@@ -5,13 +5,15 @@ import s from './SearchBar.module.css';
 
 const SearchBar = ({updateSearch, searchItem, getBooks, isLoading}) => {
 
+
+    // useRef is used to avoid mistakes on the initial render
     const firstUpdate = useRef(true);
     useEffect(() => {
         if (firstUpdate.current) {
             firstUpdate.current = false
             return
         }
-        if (searchItem === '') {
+        if (searchItem.trim() === '') {
             return 
         }
         const timeoutId = setTimeout(()=>getBooks(searchItem), 1000);

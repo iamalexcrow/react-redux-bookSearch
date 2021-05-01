@@ -19,10 +19,13 @@ let initialState = {
     books: [],
     booksOnPage: [],
     page: 0,
-    loaded: false,
+
+    isLoaded: false,
     isLoading: false,
+
     isError: false,
     errorMessage:'',
+    
     isModalOpen: false,
     book:'',
 }
@@ -112,7 +115,7 @@ const reducer = (state=initialState, action) => {
         case SET_LOADED:
             return {
                 ...state,
-                isLoaded: true
+                isLoaded: action.payload
             }
             default: return state;
     }
@@ -123,7 +126,7 @@ export const updateSearch = (payload) => ({type:UPDATE_SEARCH, payload});
 export const setLoading = (payload) => ({type:SET_LOADING, payload});
 export const saveSearchResult = (payload) => ({type:FIND_BOOK_SUCCESS, payload});
 export const getBooksOnPage = () => ({type:SET_BOOKS_ON_PAGE});
-export const setLoaded = () => ({type:SET_LOADED});
+export const setLoaded = (payload) => ({type:SET_LOADED, payload});
 export const saveBook = (payload) => ({type:SAVE_BOOK,payload})
 export const updatePage = (payload) => ({type:UPDATE_PAGE, payload})
 
@@ -146,8 +149,11 @@ export const getBooks = (searchItem) => {
             dispatch(setLoading(true));
             let data = await findBooks(searchItem)
             let books = await data.data.docs;
+            console.log(books);
+            console.log(books.length === 0)
             if (books.length === 0) {
                     dispatch(setLoading(false));
+                    dispatch(setLoaded(false));
                     dispatch(reportMistake('Oops! Nothing was found! Try modifying the name or search for another book!'));
                     setTimeout(()=>{dispatch(resetMistake())},5000);
                     return;
@@ -155,7 +161,7 @@ export const getBooks = (searchItem) => {
             dispatch(updatePage(0));
             await dispatch(saveSearchResult(paginate(books)))
             await dispatch(getBooksOnPage());
-            dispatch(setLoaded());
+            dispatch(setLoaded(true));
             dispatch(setLoading(false));
             dispatch(updateSearch(''));
         } catch (error) {
