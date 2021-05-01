@@ -1,4 +1,3 @@
-import React from 'react';
 import {findBooks} from '../api/api';
 import paginate from '../utils/paginator';
 
